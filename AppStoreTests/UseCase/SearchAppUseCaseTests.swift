@@ -1,8 +1,8 @@
 //
-//  UseCaseTests.swift
+//  SearchAppUseCaseTests.swift
 //  AppStoreTests
 //
-//  Created by Yulmong on 2020/05/18.
+//  Created by Yulmong on 2020/05/19.
 //  Copyright © 2020 yulmong. All rights reserved.
 //
 
@@ -10,7 +10,7 @@ import XCTest
 import ReactiveSwift
 @testable import AppStore
 
-class UseCaseTests: XCTestCase {
+class SearchAppUseCaseTests: XCTestCase {
     private let disposables = CompositeDisposable()
 
     override func setUpWithError() throws {
@@ -42,3 +42,4 @@ class UseCaseTests: XCTestCase {
         wait(for: [expectation], timeout: 5.0)
     }
 }
+

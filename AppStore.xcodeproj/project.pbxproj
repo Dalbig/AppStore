@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		CB442B6724712F52006CC2BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442B6624712F52006CC2BB /* AppDelegate.swift */; };
 		CB442B6924712F52006CC2BB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442B6824712F52006CC2BB /* SceneDelegate.swift */; };
-		CB442B6B24712F52006CC2BB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442B6A24712F52006CC2BB /* ViewController.swift */; };
-		CB442B6E24712F52006CC2BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB442B6C24712F52006CC2BB /* Main.storyboard */; };
 		CB442B7024712F55006CC2BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB442B6F24712F55006CC2BB /* Assets.xcassets */; };
 		CB442B7324712F55006CC2BB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB442B7124712F55006CC2BB /* LaunchScreen.storyboard */; };
 		CB442B8924712F55006CC2BB /* AppStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442B8824712F55006CC2BB /* AppStoreUITests.swift */; };
@@ -38,11 +36,21 @@
 		CB442BD62472B810006CC2BB /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442BD52472B810006CC2BB /* Context.swift */; };
 		CB442BD82472B841006CC2BB /* ProdContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442BD72472B841006CC2BB /* ProdContext.swift */; };
 		CB442BDA2472B85F006CC2BB /* TestContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442BD92472B85F006CC2BB /* TestContext.swift */; };
-		CB442BDC2472BB0A006CC2BB /* UseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB442BDB2472BB0A006CC2BB /* UseCaseTests.swift */; };
 		CB442BE02472BF43006CC2BB /* SearchResult.txt in Resources */ = {isa = PBXBuildFile; fileRef = CB442BDF2472BF43006CC2BB /* SearchResult.txt */; };
 		CB442BE12472C7BE006CC2BB /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB442BD22472B7DD006CC2BB /* ReactiveSwift.framework */; };
 		CB442BE22472C7C4006CC2BB /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB442BB024713DFD006CC2BB /* Realm.framework */; };
 		CB442BE32472C7C7006CC2BB /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB442BAD24713DAD006CC2BB /* RealmSwift.framework */; };
+		CB98A0452473F4D300FA8248 /* CommonRealmDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A0442473F4D300FA8248 /* CommonRealmDAO.swift */; };
+		CB98A0472473F4F900FA8248 /* RealmThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A0462473F4F900FA8248 /* RealmThread.swift */; };
+		CB98A04C2474038D00FA8248 /* SearchAppUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A04B2474038D00FA8248 /* SearchAppUseCaseTests.swift */; };
+		CB98A04E247403F000FA8248 /* GetLatestHistoriesUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A04D247403F000FA8248 /* GetLatestHistoriesUseCaseTests.swift */; };
+		CB98A05624740E3800FA8248 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A05524740E3800FA8248 /* SearchViewController.swift */; };
+		CB98A05824740E7700FA8248 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A05724740E7700FA8248 /* SearchViewModel.swift */; };
+		CB98A05A2474119100FA8248 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A0592474119100FA8248 /* ViewController.swift */; };
+		CB98A05D2474123F00FA8248 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB98A05B2474123F00FA8248 /* Main.storyboard */; };
+		CB98A05F2474130400FA8248 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB98A05E2474130400FA8248 /* Search.storyboard */; };
+		CB98A0612474219000FA8248 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A0602474219000FA8248 /* SearchInteractor.swift */; };
+		CB98A063247421B900FA8248 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A062247421B900FA8248 /* SearchPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,8 +90,6 @@
 		CB442B6324712F52006CC2BB /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB442B6624712F52006CC2BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB442B6824712F52006CC2BB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CB442B6A24712F52006CC2BB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CB442B6D24712F52006CC2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CB442B6F24712F55006CC2BB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB442B7224712F55006CC2BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CB442B7424712F55006CC2BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -113,8 +119,18 @@
 		CB442BD52472B810006CC2BB /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		CB442BD72472B841006CC2BB /* ProdContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdContext.swift; sourceTree = "<group>"; };
 		CB442BD92472B85F006CC2BB /* TestContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestContext.swift; sourceTree = "<group>"; };
-		CB442BDB2472BB0A006CC2BB /* UseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCaseTests.swift; sourceTree = "<group>"; };
 		CB442BDF2472BF43006CC2BB /* SearchResult.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = SearchResult.txt; sourceTree = "<group>"; };
+		CB98A0442473F4D300FA8248 /* CommonRealmDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonRealmDAO.swift; sourceTree = "<group>"; };
+		CB98A0462473F4F900FA8248 /* RealmThread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmThread.swift; sourceTree = "<group>"; };
+		CB98A04B2474038D00FA8248 /* SearchAppUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAppUseCaseTests.swift; sourceTree = "<group>"; };
+		CB98A04D247403F000FA8248 /* GetLatestHistoriesUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestHistoriesUseCaseTests.swift; sourceTree = "<group>"; };
+		CB98A05524740E3800FA8248 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		CB98A05724740E7700FA8248 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		CB98A0592474119100FA8248 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CB98A05C2474123F00FA8248 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB98A05E2474130400FA8248 /* Search.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		CB98A0602474219000FA8248 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		CB98A062247421B900FA8248 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,8 +194,6 @@
 				CB442B96247137B3006CC2BB /* Data */,
 				CB442B6624712F52006CC2BB /* AppDelegate.swift */,
 				CB442B6824712F52006CC2BB /* SceneDelegate.swift */,
-				CB442B6A24712F52006CC2BB /* ViewController.swift */,
-				CB442B6C24712F52006CC2BB /* Main.storyboard */,
 				CB442B6F24712F55006CC2BB /* Assets.xcassets */,
 				CB442B7124712F55006CC2BB /* LaunchScreen.storyboard */,
 				CB442B7424712F55006CC2BB /* Info.plist */,
@@ -190,7 +204,7 @@
 		CB442B7C24712F55006CC2BB /* AppStoreTests */ = {
 			isa = PBXGroup;
 			children = (
-				CB442BDB2472BB0A006CC2BB /* UseCaseTests.swift */,
+				CB98A04A2474035C00FA8248 /* UseCase */,
 				CB442B7F24712F55006CC2BB /* Info.plist */,
 			);
 			path = AppStoreTests;
@@ -217,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				CB442BA2247139E2006CC2BB /* Common */,
+				CB98A064247423F900FA8248 /* History */,
 				CB442B99247137D8006CC2BB /* Search */,
 			);
 			path = Domain;
@@ -225,6 +240,9 @@
 		CB442B98247137CC006CC2BB /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				CB98A05B2474123F00FA8248 /* Main.storyboard */,
+				CB98A0592474119100FA8248 /* ViewController.swift */,
+				CB98A04F24740CC700FA8248 /* Search */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -242,8 +260,6 @@
 		CB442B9A247137FD006CC2BB /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
-				CB442BBF247140C3006CC2BB /* GetHistoriesWithKeywordUseCase.swift */,
-				CB442BBA24713F80006CC2BB /* GetLatestHistoriesUseCase.swift */,
 				CB442BBC2471403C006CC2BB /* SearchAppUseCase.swift */,
 			);
 			path = UseCases;
@@ -252,7 +268,6 @@
 		CB442B9B2471380C006CC2BB /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				CB442BC724714175006CC2BB /* HistoryRepository.swift */,
 				CB442BC92471418D006CC2BB /* SearchRepsitory.swift */,
 			);
 			path = Repositories;
@@ -262,7 +277,6 @@
 			isa = PBXGroup;
 			children = (
 				CB442BC1247140DB006CC2BB /* AppContent.swift */,
-				CB442BC3247140F6006CC2BB /* History.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 		CB442BA12471396E006CC2BB /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				CB98A0432473F4BB00FA8248 /* Common */,
 				CB442BB424713E6A006CC2BB /* HistoryRealmRepository.swift */,
 				CB442BB624713EBA006CC2BB /* MockHistoryRealmRepository.swift */,
 			);
@@ -324,6 +339,95 @@
 				CB442BD92472B85F006CC2BB /* TestContext.swift */,
 			);
 			path = IOC;
+			sourceTree = "<group>";
+		};
+		CB98A0432473F4BB00FA8248 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CB98A0442473F4D300FA8248 /* CommonRealmDAO.swift */,
+				CB98A0462473F4F900FA8248 /* RealmThread.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CB98A04A2474035C00FA8248 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				CB98A04D247403F000FA8248 /* GetLatestHistoriesUseCaseTests.swift */,
+				CB98A04B2474038D00FA8248 /* SearchAppUseCaseTests.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		CB98A04F24740CC700FA8248 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				CB98A05424740E0500FA8248 /* AppContents */,
+				CB98A05324740DF900FA8248 /* HistoriesWithKeword */,
+				CB98A05224740DEE00FA8248 /* LatestHistories */,
+				CB98A05524740E3800FA8248 /* SearchViewController.swift */,
+				CB98A05E2474130400FA8248 /* Search.storyboard */,
+				CB98A05724740E7700FA8248 /* SearchViewModel.swift */,
+				CB98A0602474219000FA8248 /* SearchInteractor.swift */,
+				CB98A062247421B900FA8248 /* SearchPresenter.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		CB98A05224740DEE00FA8248 /* LatestHistories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LatestHistories;
+			sourceTree = "<group>";
+		};
+		CB98A05324740DF900FA8248 /* HistoriesWithKeword */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HistoriesWithKeword;
+			sourceTree = "<group>";
+		};
+		CB98A05424740E0500FA8248 /* AppContents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppContents;
+			sourceTree = "<group>";
+		};
+		CB98A064247423F900FA8248 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				CB98A0672474242200FA8248 /* Repositories */,
+				CB98A0662474241600FA8248 /* UseCases */,
+				CB98A0652474240400FA8248 /* Entity */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		CB98A0652474240400FA8248 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CB442BC3247140F6006CC2BB /* History.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CB98A0662474241600FA8248 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				CB442BBF247140C3006CC2BB /* GetHistoriesWithKeywordUseCase.swift */,
+				CB442BBA24713F80006CC2BB /* GetLatestHistoriesUseCase.swift */,
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		CB98A0672474242200FA8248 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				CB442BC724714175006CC2BB /* HistoryRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,9 +536,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB442B7324712F55006CC2BB /* LaunchScreen.storyboard in Resources */,
+				CB98A05D2474123F00FA8248 /* Main.storyboard in Resources */,
 				CB442BE02472BF43006CC2BB /* SearchResult.txt in Resources */,
 				CB442B7024712F55006CC2BB /* Assets.xcassets in Resources */,
-				CB442B6E24712F52006CC2BB /* Main.storyboard in Resources */,
+				CB98A05F2474130400FA8248 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,24 +564,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB98A05A2474119100FA8248 /* ViewController.swift in Sources */,
 				CB442BCC247143D3006CC2BB /* Error.swift in Sources */,
+				CB98A0452473F4D300FA8248 /* CommonRealmDAO.swift in Sources */,
 				CB442BC624714132006CC2BB /* UseCase.swift in Sources */,
 				CB442BBD2471403C006CC2BB /* SearchAppUseCase.swift in Sources */,
 				CB442BCF2472B442006CC2BB /* CommonApplicationContext.swift in Sources */,
 				CB442BD12472B44E006CC2BB /* Assembler.swift in Sources */,
 				CB442BDA2472B85F006CC2BB /* TestContext.swift in Sources */,
 				CB442BD62472B810006CC2BB /* Context.swift in Sources */,
+				CB98A0472473F4F900FA8248 /* RealmThread.swift in Sources */,
 				CB442BB724713EBA006CC2BB /* MockHistoryRealmRepository.swift in Sources */,
 				CB442BC2247140DB006CC2BB /* AppContent.swift in Sources */,
 				CB442BB524713E6A006CC2BB /* HistoryRealmRepository.swift in Sources */,
 				CB442BBB24713F80006CC2BB /* GetLatestHistoriesUseCase.swift in Sources */,
-				CB442B6B24712F52006CC2BB /* ViewController.swift in Sources */,
 				CB442BCA2471418D006CC2BB /* SearchRepsitory.swift in Sources */,
 				CB442BC4247140F6006CC2BB /* History.swift in Sources */,
+				CB98A0612474219000FA8248 /* SearchInteractor.swift in Sources */,
 				CB442BC0247140C3006CC2BB /* GetHistoriesWithKeywordUseCase.swift in Sources */,
 				CB442BB924713EC9006CC2BB /* MockItunesSearchRepository.swift in Sources */,
+				CB98A05624740E3800FA8248 /* SearchViewController.swift in Sources */,
+				CB98A063247421B900FA8248 /* SearchPresenter.swift in Sources */,
 				CB442BD82472B841006CC2BB /* ProdContext.swift in Sources */,
 				CB442BC824714175006CC2BB /* HistoryRepository.swift in Sources */,
+				CB98A05824740E7700FA8248 /* SearchViewModel.swift in Sources */,
 				CB442B6724712F52006CC2BB /* AppDelegate.swift in Sources */,
 				CB442B6924712F52006CC2BB /* SceneDelegate.swift in Sources */,
 				CB442BA424713A0D006CC2BB /* ItunesSearchRepository.swift in Sources */,
@@ -487,7 +598,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CB442BDC2472BB0A006CC2BB /* UseCaseTests.swift in Sources */,
+				CB98A04E247403F000FA8248 /* GetLatestHistoriesUseCaseTests.swift in Sources */,
+				CB98A04C2474038D00FA8248 /* SearchAppUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,20 +627,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CB442B6C24712F52006CC2BB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CB442B6D24712F52006CC2BB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CB442B7124712F55006CC2BB /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CB442B7224712F55006CC2BB /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CB98A05B2474123F00FA8248 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB98A05C2474123F00FA8248 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

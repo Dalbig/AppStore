@@ -16,5 +16,8 @@ class TestContext: CommonApplicationContext {
 
         /// UseCases
         register({ return SearchAppUseCase(searchRepository: self.resolve()) })
+        register({ return GetLatestHistoriesUseCase(historyRepository: self.resolve()) })
+        register({ return GetHistoriesWithKeywordUseCase(historyRepository: self.resolve()) })
+
     }
 }

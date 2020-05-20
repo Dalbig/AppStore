@@ -11,10 +11,12 @@ import Foundation
 class ProdContext: CommonApplicationContext {
     override func configure() {
         /// Repositories
-        register({ return HistoryRealmRepository() as HistoryRepository })
+        registerLazySingleton({ return HistoryRealmRepository() as HistoryRepository })
         register({ return ItunesSearchRepository() as SearchRepository })
 
         /// UseCases
         register({ return SearchAppUseCase(searchRepository: self.resolve()) })
+        register({ return GetLatestHistoriesUseCase(historyRepository: self.resolve()) })
+        register({ return GetHistoriesWithKeywordUseCase(historyRepository: self.resolve()) })
     }
 }
