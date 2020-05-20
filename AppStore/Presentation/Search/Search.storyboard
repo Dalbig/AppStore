@@ -31,29 +31,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-zl-gbV">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ceF-zl-gbV">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="i6N-wJ-4X4">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i6N-wJ-4X4" id="Avm-30-jgf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyl-hf-n9n">
-                                                    <rect key="frame" x="59" y="18" width="45" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="lYo-Tu-hDg">
-                                        <rect key="frame" x="0.0" y="105.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lYo-Tu-hDg" id="Ne7-p2-BWy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -70,7 +53,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="50" id="Ajf-XE-STX">
-                                        <rect key="frame" x="0.0" y="155.5" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="105.5" width="414" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ajf-XE-STX" id="UGa-13-cdC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -93,19 +76,32 @@
                                     <outlet property="delegate" destination="nbw-Gu-bw5" id="tTq-yz-Qtz"/>
                                 </connections>
                             </tableView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D7J-XG-7Wk" customClass="SearchTableView" customModule="AppStore" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="nbw-Gu-bw5" id="BVW-VF-1dk"/>
+                                    <outlet property="delegate" destination="nbw-Gu-bw5" id="jMO-Kd-UOG"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="wJ4-3a-4rF" firstAttribute="bottom" secondItem="ceF-zl-gbV" secondAttribute="bottom" id="14h-8M-6Y7"/>
+                            <constraint firstItem="D7J-XG-7Wk" firstAttribute="leading" secondItem="wJ4-3a-4rF" secondAttribute="leading" id="ERQ-iW-jIR"/>
                             <constraint firstItem="ceF-zl-gbV" firstAttribute="leading" secondItem="wJ4-3a-4rF" secondAttribute="leading" id="Hof-nI-UmJ"/>
+                            <constraint firstItem="wJ4-3a-4rF" firstAttribute="trailing" secondItem="D7J-XG-7Wk" secondAttribute="trailing" id="NOT-uV-Fw8"/>
                             <constraint firstItem="ceF-zl-gbV" firstAttribute="top" secondItem="wJ4-3a-4rF" secondAttribute="top" id="STy-ag-AWt"/>
                             <constraint firstItem="wJ4-3a-4rF" firstAttribute="trailing" secondItem="ceF-zl-gbV" secondAttribute="trailing" id="sek-Vx-kmT"/>
+                            <constraint firstItem="wJ4-3a-4rF" firstAttribute="bottom" secondItem="D7J-XG-7Wk" secondAttribute="bottom" id="xGZ-Ws-VTp"/>
+                            <constraint firstItem="D7J-XG-7Wk" firstAttribute="top" secondItem="wJ4-3a-4rF" secondAttribute="top" id="yeY-Q3-5vn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wJ4-3a-4rF"/>
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="2Sg-VJ-U8M"/>
                     <connections>
                         <outlet property="latestHistoryTableView" destination="ceF-zl-gbV" id="de2-Ih-8rl"/>
+                        <outlet property="searchAppsTableView" destination="D7J-XG-7Wk" id="Oyz-7O-XoV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8e-jf-5He" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -21,14 +21,27 @@ enum Search {
 
     enum HistoryWithKeyword {
         struct ViewModel {
-            let term: String
-            let date: TimeInterval
+            struct History {
+                let term: String
+                let date: TimeInterval
+            }
+
+            var histories: [History] = []
         }
     }
 
     enum SearchedApp {
         struct ViewModel {
-
+            struct App {
+                let trackName: String
+                let screenshotUrls: [String]
+                let artworkUrl100: String
+                let averageUserRatingForCurrentVersion: Double
+                let userRatingCountForCurrentVersion: Int
+                let primaryGenreName: String
+            }
+            
+            var apps: [App] = []
         }
     }
 }

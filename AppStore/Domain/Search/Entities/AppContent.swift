@@ -22,8 +22,8 @@ struct AppContent {
     var fileSizeBytes: String
     var sellerUrl: String
     var contentAdvisoryRating: String //4+
-    var averageUserRatingForCurrentVersion: String // 별점 double (3.618160000000000042774672692758031189441680908203125)
-    var userRatingCountForCurrentVersion: String
+    var averageUserRatingForCurrentVersion: Double // 별점 double (3.618160000000000042774672692758031189441680908203125)
+    var userRatingCountForCurrentVersion: Int
     var averageUserRating: String
     var trackId: String
     var trackName: String
@@ -58,8 +58,8 @@ struct AppContent {
         fileSizeBytes = dict["fileSizeBytes"]as? String ?? ""
         sellerUrl = dict["sellerUrl"]as? String ?? ""
         contentAdvisoryRating = dict["contentAdvisoryRating"]as? String ?? ""
-        averageUserRatingForCurrentVersion = dict["averageUserRatingForCurrentVersion"]as? String ?? ""
-        userRatingCountForCurrentVersion = dict["userRatingCountForCurrentVersion"]as? String ?? ""
+        averageUserRatingForCurrentVersion = dict["averageUserRatingForCurrentVersion"]as? Double ?? 0
+        userRatingCountForCurrentVersion = dict["userRatingCountForCurrentVersion"]as? Int ?? 0
         averageUserRating = dict["averageUserRating"]as? String ?? ""
         sellerUrl = dict["sellerUrl"] as? String ?? ""
         averageUserRating = dict["averageUserRating"] as? String ?? ""

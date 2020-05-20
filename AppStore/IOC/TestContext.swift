@@ -15,7 +15,7 @@ class TestContext: CommonApplicationContext {
         register({ return MockItunesSearchRepository() as SearchRepository })
 
         /// UseCases
-        register({ return SearchAppUseCase(searchRepository: self.resolve()) })
+        register({ return SearchAppUseCase(searchRepository: self.resolve(), historyRepository: self.resolve()) })
         register({ return GetLatestHistoriesUseCase(historyRepository: self.resolve()) })
         register({ return GetHistoriesWithKeywordUseCase(historyRepository: self.resolve()) })
 

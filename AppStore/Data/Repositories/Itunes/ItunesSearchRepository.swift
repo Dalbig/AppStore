@@ -69,8 +69,7 @@ class ItunesSearchRepository: SearchRepository {
         var url = request.url
 
         let country = Locale.current.regionCode ?? "KR"
-        let langCode = Locale.current.languageCode ?? "ko"
-        let lang = "\(langCode)_\(country.lowercased())"
+        let lang = country == "KR" ? "ko_kr" : "en_us"
 
         print(" lang : \(lang)")
 
@@ -80,12 +79,14 @@ class ItunesSearchRepository: SearchRepository {
             URLQueryItem(name: "entity", value: "software"),
             URLQueryItem(name: "term", value: term),
             URLQueryItem(name: "country", value: country),
-            URLQueryItem(name: "lang", value: lang),
+            URLQueryItem(name: "lang", value: "\(lang)"),
             URLQueryItem(name: "limit", value: "\(limit)") /// 1 to 200
         ]
 
         url = urlComponents.url(relativeTo: url)
         request.url = url
+        
+        print(" url : \(url?.absoluteString)")
 
         return request
     }

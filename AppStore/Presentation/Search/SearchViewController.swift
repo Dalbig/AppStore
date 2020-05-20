@@ -11,12 +11,21 @@ import UIKit
 
 protocol SearchDisplayLogic: AnyObject {
     func displayLatestHistories(viewModel: Search.LatestHistory.ViewModel)
+    func displaySearchedApps(viewModel: Search.SearchedApp.ViewModel)
+}
+
+protocol SearchResultDeletate: AnyObject {
+    func didSelectItem(text: String)
 }
 
 class SearchViewConroller: UIViewController {
     @IBOutlet weak var latestHistoryTableView: UITableView!
+    private let searchResultsController = ResultsController(style: .plain)
+
+    @IBOutlet weak var searchAppsTableView: SearchTableView!
     var interactor: SearchBusinessLogic?
-    var latestHistoriesViewModel: Search.LatestHistory.ViewModel?
+    var histories: [Search.LatestHistory.ViewModel.History] = []
+    var viewModel: Search.SearchedApp.ViewModel?
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?)
     {
@@ -42,8 +51,10 @@ class SearchViewConroller: UIViewController {
 
     override func viewDidLoad() {
         setupNavBar()
-
+        let nib = UINib(nibName: "SearchAppTableViewCell", bundle: nil)
+        self.searchAppsTableView.register(nib, forCellReuseIdentifier: "SearchAppTableViewCell")
         self.latestHistoryTableView.sectionHeaderHeight = 70
+        self.searchResultsController.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,15 +64,89 @@ class SearchViewConroller: UIViewController {
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = true
 
-        let searchController = UISearchController(searchResultsController: nil)
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.searchResultsUpdater = searchResultsController
+        searchController.delegate = self
+        searchController.searchBar.placeholder = "Games, Apps, Stories and More"
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
 }
 
+extension SearchViewConroller: SearchDisplayLogic {
+    func displayLatestHistories(viewModel: Search.LatestHistory.ViewModel) {
+        self.histories = viewModel.latestHistories
+        self.searchResultsController.histories = viewModel.latestHistories
+
+        DispatchQueue.main.async {
+            self.latestHistoryTableView.reloadData()
+        }
+    }
+
+    func displaySearchedApps(viewModel: Search.SearchedApp.ViewModel) {
+        self.viewModel = viewModel
+
+        DispatchQueue.main.async {
+            self.latestHistoryTableView.isHidden = true
+            self.searchAppsTableView.isHidden = false
+            self.searchAppsTableView.reloadData()
+        }
+    }
+}
+
+extension SearchViewConroller: SearchResultDeletate {
+    func didSelectItem(text: String) {
+        navigationItem.searchController?.showsSearchResultsController = false
+        navigationItem.searchController?.searchBar.text = text
+        interactor?.searchApp(text: text)
+    }
+
+}
+
+extension SearchViewConroller: UISearchControllerDelegate, UISearchBarDelegate {
+    func willDismissSearchController(_ searchController: UISearchController) {
+        self.latestHistoryTableView.isHidden = false
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.latestHistoryTableView.isHidden = false
+        self.searchAppsTableView.isHidden = true
+
+        interactor?.fetchLatestHistories()
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let text = searchBar.text else { return }
+        navigationItem.searchController?.showsSearchResultsController = false
+        interactor?.searchApp(text: text)
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let filtered = histories.filter { $0.term.lowercased().contains(searchText.lowercased()) }
+
+        guard filtered.isEmpty else { return }
+        navigationItem.searchController?.showsSearchResultsController = true
+    }
+}
+
 extension SearchViewConroller: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return latestHistoriesViewModel?.latestHistories.count ?? 0
+        if tableView is SearchTableView {
+            let count = viewModel?.apps.count ?? 0
+
+            if count == 0 {
+                tableView.separatorStyle = .none
+            } else {
+                tableView.separatorStyle = .singleLine
+            }
+
+            return count
+        } else {
+            return histories.count
+        }
     }
 
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,22 +154,39 @@ extension SearchViewConroller: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        if tableView is SearchTableView {
+            return 350
+        } else {
+            return 50
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let histories = latestHistoriesViewModel?.latestHistories else { return UITableViewCell() }
+        if tableView is SearchTableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "SearchAppTableViewCell", for: indexPath) as? SearchAppTableViewCell,
+                let app = viewModel?.apps[indexPath.row] else {
+                    return UITableViewCell()
+            }
+            cell.selectionStyle = .none
+            cell.configureCell(app: app)
+            return cell
+        } else {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = histories[indexPath.row].term
+            cell.textLabel?.textColor = .systemBlue
+            cell.textLabel?.sizeToFit()
+            cell.selectionStyle = .none
 
-        let cell = UITableViewCell()
-        cell.textLabel?.text = histories[indexPath.row].term
-        cell.textLabel?.textColor = .systemBlue
-        cell.textLabel?.sizeToFit()
-
-        return cell
+            return cell
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        if tableView is SearchTableView {
+            return 0
+        } else {
+            return 60
+        }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -100,11 +202,64 @@ extension SearchViewConroller: UITableViewDelegate, UITableViewDataSource {
 
         return headerView
     }
-}
 
-extension SearchViewConroller: SearchDisplayLogic {
-    func displayLatestHistories(viewModel: Search.LatestHistory.ViewModel) {
-        self.latestHistoriesViewModel = viewModel
-        latestHistoryTableView.reloadData()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView is SearchTableView {
+        } else {
+            let text = histories[indexPath.row].term
+            interactor?.searchApp(text: text)
+            navigationItem.searchController?.isActive = true
+            navigationItem.searchController?.showsSearchResultsController = false
+            navigationItem.searchController?.searchBar.text = text
+        }
     }
 }
+
+class ResultsController: UITableViewController, UISearchResultsUpdating {
+    var histories: [Search.LatestHistory.ViewModel.History] = []
+    private var filteredHistories: [Search.LatestHistory.ViewModel.History] = []
+    private var searchText: String = ""
+
+    weak var delegate: SearchResultDeletate?
+
+    override func viewDidLoad() {
+
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+
+        filterContentForSearchText(text)
+    }
+
+    func filterContentForSearchText(_ searchText: String) {
+        self.searchText = searchText
+        self.filteredHistories = histories.filter { $0.term.lowercased().contains(searchText.lowercased()) }
+        
+        if self.filteredHistories.isEmpty {
+            tableView.separatorStyle = .none
+        } else {
+            tableView.separatorStyle = .singleLine
+        }
+
+        tableView.reloadData()
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredHistories.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+        cell.textLabel?.text = filteredHistories[indexPath.row].term
+        cell.textLabel?.sizeToFit()
+        return cell
+    }
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let term = filteredHistories[indexPath.row].term
+        delegate?.didSelectItem(text: term)
+    }
+}
+
+

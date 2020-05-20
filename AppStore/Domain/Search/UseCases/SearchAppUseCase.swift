@@ -15,12 +15,15 @@ class SearchAppUseCase: UseCaseWithParam {
     private let limit = 100
 
     private var searchRepository: SearchRepository!
+    private var historyRepository: HistoryRepository!
 
-    init(searchRepository: SearchRepository) {
+    init(searchRepository: SearchRepository, historyRepository: HistoryRepository) {
         self.searchRepository = searchRepository
+        self.historyRepository = historyRepository
     }
 
     func execute(param: String) -> SignalProducer<Result, AppStoreError> {
+        historyRepository.AddHistories(histories: [History(id: param, term: param, updatedDate: Date().timeIntervalSince1970)])
         return searchRepository.search(term: param, limit: limit)
     }
 }
