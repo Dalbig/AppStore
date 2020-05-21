@@ -33,6 +33,7 @@ enum Search {
     enum SearchedApp {
         struct ViewModel {
             struct App {
+                let bundleId: String
                 let trackName: String
                 let screenshotUrls: [String]
                 let artworkUrl100: String

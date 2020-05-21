@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+protocol AppDetailPresentationLogic: AnyObject {
+    func presentAppDetail(app: AppContent)
+}
+
+class AppDetailPresenter: AppDetailPresentationLogic {
+
+}

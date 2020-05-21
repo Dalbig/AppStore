@@ -62,6 +62,9 @@ class SearchViewConroller: UIViewController {
     }
 
     func setupNavBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.prefersLargeTitles = true
 
         let searchController = UISearchController(searchResultsController: searchResultsController)
@@ -190,14 +193,13 @@ extension SearchViewConroller: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
+        if tableView is SearchTableView { return nil }
 
+        let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 60))
         let label = UILabel()
         label.frame = CGRect.init(x: 15, y: 5, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
         label.text = "최근 검색어"
         label.font = UIFont.systemFont(ofSize: 19, weight: .bold)
-        label.textColor = .black
-
         headerView.addSubview(label)
 
         return headerView
@@ -205,6 +207,9 @@ extension SearchViewConroller: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView is SearchTableView {
+            guard let id = viewModel?.apps[indexPath.row].bundleId else { return }
+            print("did selecte id : \(id)")
+            interactor?.searchAppSelected(id: id)
         } else {
             let text = histories[indexPath.row].term
             interactor?.searchApp(text: text)
@@ -235,7 +240,7 @@ class ResultsController: UITableViewController, UISearchResultsUpdating {
     func filterContentForSearchText(_ searchText: String) {
         self.searchText = searchText
         self.filteredHistories = histories.filter { $0.term.lowercased().contains(searchText.lowercased()) }
-        
+
         if self.filteredHistories.isEmpty {
             tableView.separatorStyle = .none
         } else {

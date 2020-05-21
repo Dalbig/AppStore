@@ -11,6 +11,11 @@ import ReactiveSwift
 protocol SearchBusinessLogic: AnyObject {
     func fetchLatestHistories()
     func searchApp(text: String)
+    func searchAppSelected(id: String)
+}
+
+struct SearchAPPDataStore {
+    let apps: [AppContent]
 }
 
 class SearchInteractor: SearchBusinessLogic {
@@ -18,6 +23,8 @@ class SearchInteractor: SearchBusinessLogic {
     private let disposables = CompositeDisposable()
     private let getLatestHistoriesUseCase: GetLatestHistoriesUseCase = Context.resolve()
     private let searchAppUseCase: SearchAppUseCase = Context.resolve()
+
+    var dataStore: SearchAPPDataStore?
 
     deinit {
         disposables.dispose()
@@ -41,10 +48,16 @@ class SearchInteractor: SearchBusinessLogic {
             .startWithResult { [weak self] result in
                 switch result {
                 case .success(let data):
+                    self?.dataStore = SearchAPPDataStore(apps: data)
                     self?.presenter?.presentApps(apps: data)
                 case .failure(let error):
                     print("failed to get latest histories : \(error.description)")
                 }
         }
+    }
+
+    func searchAppSelected(id: String) {
+        guard let app = dataStore?.apps.filter({ $0.bundleId == id }).first else { return }
+        presenter?.routeToDetail(app: app)
     }
 }

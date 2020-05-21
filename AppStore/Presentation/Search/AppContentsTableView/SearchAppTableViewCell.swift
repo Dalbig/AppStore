@@ -57,8 +57,10 @@ class SearchAppTableViewCell: UITableViewCell {
             }
         }
     }
+}
 
-    private func getRatingCountString(count: Int) -> String {
+extension UITableViewCell {
+    func getRatingCountString(count: Int) -> String {
         let ratingCountUpper = Int(count / 1000)
         let ratingCountDown = (count % 1000)
 
@@ -76,7 +78,7 @@ class SearchAppTableViewCell: UITableViewCell {
         return raingCount
     }
 
-    private func mapRatingToStar(views: [UIImageView], rating: Double) {
+    func mapRatingToStar(views: [UIImageView], rating: Double) {
         let upperRating = Int(rating)
         let downRating = rating - Double(upperRating)
 
