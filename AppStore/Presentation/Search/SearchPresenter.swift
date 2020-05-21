@@ -41,7 +41,7 @@ class SearchPresenter: SearchPresentationLogic {
     }
 
     func routeToDetail(app: AppContent) {
-        guard let vc = UIStoryboard(name: "AppDetail", bundle: nil).instantiateViewController(identifier: "AppDetailViewController") as? AppDetailViewController else {
+        guard let vc = UIStoryboard(name: "Detail", bundle: nil).instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
             return
         }
 

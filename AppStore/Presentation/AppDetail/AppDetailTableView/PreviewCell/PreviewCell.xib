@@ -3,19 +3,49 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="PreviewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PreviewCell" id="N0V-GL-TLH" customClass="PreviewCell" customModule="AppStore" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PreviewCell" id="WNn-TC-fIe" customClass="PreviewCell" customModule="AppStore" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N0V-GL-TLH" id="lpu-n5-19S">
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fcc-UL-Gv4">
                 <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
                 <autoresizingMask key="autoresizingMask"/>
-            </tableViewCellContentView>
-            <point key="canvasLocation" x="156" y="51"/>
-        </tableViewCell>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="kOX-1G-Rgw">
+                        <rect key="frame" x="0.0" y="49" width="414" height="351"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="QHO-GM-uMj">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's new" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbu-i4-Tkj">
+                        <rect key="frame" x="15" y="15" width="110" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kOX-1G-Rgw" firstAttribute="leading" secondItem="fcc-UL-Gv4" secondAttribute="leading" id="6b6-Ql-oAn"/>
+                    <constraint firstItem="pbu-i4-Tkj" firstAttribute="leading" secondItem="fcc-UL-Gv4" secondAttribute="leading" constant="15" id="GmD-0V-xPV"/>
+                    <constraint firstAttribute="trailing" secondItem="kOX-1G-Rgw" secondAttribute="trailing" id="HEI-Me-f85"/>
+                    <constraint firstItem="pbu-i4-Tkj" firstAttribute="top" secondItem="fcc-UL-Gv4" secondAttribute="top" constant="15" id="IX4-39-IRg"/>
+                    <constraint firstItem="kOX-1G-Rgw" firstAttribute="top" secondItem="pbu-i4-Tkj" secondAttribute="bottom" constant="10" id="eM9-0o-rpA"/>
+                    <constraint firstAttribute="bottom" secondItem="kOX-1G-Rgw" secondAttribute="bottom" id="vdN-lX-Cmb"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <connections>
+                <outlet property="collectionViewLayout" destination="QHO-GM-uMj" id="hF6-Jx-6CI"/>
+            </connections>
+            <point key="canvasLocation" x="135" y="-16"/>
+        </collectionViewCell>
     </objects>
 </document>

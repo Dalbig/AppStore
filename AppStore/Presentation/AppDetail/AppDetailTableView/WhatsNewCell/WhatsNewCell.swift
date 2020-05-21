@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class WhatsNewCell: DetailTableViewCell {
+class WhatsNewCell: DetailCollectionViewCell {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var releaseDate: UILabel!
 

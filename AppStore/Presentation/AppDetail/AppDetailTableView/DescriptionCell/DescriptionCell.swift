@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DescriptionCell: DetailTableViewCell {
+class DescriptionCell: DetailCollectionViewCell {
     @IBOutlet weak var descLabel: UILabel!
     
     override func configureCell(app: AppContent) {

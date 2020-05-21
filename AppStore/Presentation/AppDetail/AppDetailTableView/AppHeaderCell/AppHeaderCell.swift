@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-class AppHeaderCell: DetailTableViewCell {
-    @IBOutlet var upperWraperView: UIView!
-
+class AppHeaderCell: DetailCollectionViewCell {
     @IBOutlet var iconImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subTitleLabel: UILabel!
@@ -51,5 +49,40 @@ class AppHeaderCell: DetailTableViewCell {
         mapRatingToStar(views: ratingImageViews, rating: app.averageUserRatingForCurrentVersion)
 
         ratingCountLabel.text = getRatingCountString(count: app.userRatingCountForCurrentVersion) + " rating"
+    }
+    
+    func getRatingCountString(count: Int) -> String {
+        let ratingCountUpper = Int(count / 1000)
+        let ratingCountDown = (count % 1000)
+
+        var raingCount: String = ""
+
+        if (ratingCountUpper / 10) > 0 {
+            //두자리 이상
+            raingCount = "\(ratingCountUpper)k"
+        } else if ratingCountUpper > 0 {
+            raingCount = "\(ratingCountUpper).\(Int(ratingCountDown / 100))k"
+        } else {
+            raingCount = "\(ratingCountDown)"
+        }
+
+        return raingCount
+    }
+
+    func mapRatingToStar(views: [UIImageView], rating: Double) {
+        let upperRating = Int(rating)
+        let downRating = rating - Double(upperRating)
+
+        for n in 0..<upperRating {
+            views[n].image = UIImage(systemName: "star.fill")
+        }
+
+        if upperRating == 5 { return }
+
+        if downRating >= 0.7 && downRating <= 0.9 {
+            views[upperRating].image = UIImage(systemName: "star.fill")
+        } else if downRating >= 0.4 && downRating <= 0.6 {
+            views[upperRating].image = UIImage(systemName: "star.lefthalf.fill")
+        }
     }
 }

@@ -66,6 +66,8 @@
 		CB98A0732475993000FA8248 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A0722475993000FA8248 /* ImageManager.swift */; };
 		CB98A0762475AA0F00FA8248 /* AppDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A0752475AA0F00FA8248 /* AppDetailViewController.swift */; };
 		CB98A07E2475AA4B00FA8248 /* AppDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB98A07D2475AA4B00FA8248 /* AppDetail.storyboard */; };
+		CB98A0802476A98F00FA8248 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB98A07F2476A98F00FA8248 /* DetailViewController.swift */; };
+		CB98A0822476A99C00FA8248 /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB98A0812476A99C00FA8248 /* Detail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -161,6 +163,8 @@
 		CB98A0722475993000FA8248 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		CB98A0752475AA0F00FA8248 /* AppDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailViewController.swift; sourceTree = "<group>"; };
 		CB98A07D2475AA4B00FA8248 /* AppDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AppDetail.storyboard; sourceTree = "<group>"; };
+		CB98A07F2476A98F00FA8248 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CB98A0812476A99C00FA8248 /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -524,6 +528,8 @@
 		CB98A0742475A9EA00FA8248 /* AppDetail */ = {
 			isa = PBXGroup;
 			children = (
+				CB98A0812476A99C00FA8248 /* Detail.storyboard */,
+				CB98A07F2476A98F00FA8248 /* DetailViewController.swift */,
 				7F6F7AA8247629840060D3F5 /* AppDetailTableView */,
 				CB98A07D2475AA4B00FA8248 /* AppDetail.storyboard */,
 				CB98A0752475AA0F00FA8248 /* AppDetailViewController.swift */,
@@ -647,6 +653,7 @@
 				CB442B7024712F55006CC2BB /* Assets.xcassets in Resources */,
 				7F6F7AB92476642B0060D3F5 /* WhatsNewCell.xib in Resources */,
 				CB98A05F2474130400FA8248 /* Search.storyboard in Resources */,
+				CB98A0822476A99C00FA8248 /* Detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +696,7 @@
 				CB442BC2247140DB006CC2BB /* AppContent.swift in Sources */,
 				CB442BB524713E6A006CC2BB /* HistoryRealmRepository.swift in Sources */,
 				7F6F7AB72476641E0060D3F5 /* WhatsNewCell.swift in Sources */,
+				CB98A0802476A98F00FA8248 /* DetailViewController.swift in Sources */,
 				CB442BBB24713F80006CC2BB /* GetLatestHistoriesUseCase.swift in Sources */,
 				CB442BCA2471418D006CC2BB /* SearchRepsitory.swift in Sources */,
 				7F6F7ABF247670190060D3F5 /* DescriptionCell.swift in Sources */,
